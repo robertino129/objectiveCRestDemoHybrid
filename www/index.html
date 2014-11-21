@@ -32,6 +32,8 @@
 
             <button type="button" onclick="get('http://time.jsontest.com/')">Click me</button>
             <div id = "myDiv"></div>
+            <button type="button" onclick="navigator.geolocation.getCurrentPosition(geolocationSuccess)">Get Location</button>
+            <div id = "locationDiv"></div>
            
         </div>
         
@@ -46,6 +48,13 @@
                 var result = JSON.parse(xmlHttp.responseText)
                 document.getElementById("myDiv").innerHTML = result.date + " " + result.time;
             }
+        
+        function geolocationSuccess(position){
+             alert('latitude:'+ position.coords.latitude + ' longitude:' + position.coords.longitude );
+
+        }
+        
+        
         
             </script>
         <script type="text/javascript" src="cordova.js"></script>
